@@ -42,6 +42,14 @@ public class Main {
         //printArr(arr);
     }
 
+    public static void quickSorter(int[] arr) {
+        //int[] arr = {45, 13, 4, 10, 7, 16, 19, 1, 64, 3};
+
+        QuickSort quickSort = new QuickSort();
+        quickSort.sort(arr);
+        //printArr(arr);
+    }
+
     public static void driver() {
         int elements = 100000;
         int[] arr = new int[elements];
@@ -72,11 +80,22 @@ public class Main {
         System.out.println("Merge sort took " +(endTime - startTime) + " milliseconds");
 
 
+        int[] arrQuick = Arrays.copyOf(arr, elements);
+        startTime = System.currentTimeMillis();
+        quickSorter(arrQuick);
+        endTime = System.currentTimeMillis();
+        System.out.println("Quick sort took " +(endTime - startTime) + " milliseconds");
+        if(Arrays.equals(arrQuick, arrMerge)) {
+            System.out.println("Same");
+        }
+        else {
+            System.out.println("Not same");
+        }
+
     }
 
 
     public static void main(String[] args) {
         driver();
-
     }
 }
